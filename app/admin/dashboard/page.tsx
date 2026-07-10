@@ -1,41 +1,41 @@
-import Sidebar from "@/components/dashboard/Sidebar";
-import Header from "@/components/dashboard/Header";
-import StatsCard from "@/components/dashboard/StatsCard";
+"use client";
+
+
+import StatsCard from "@/admin/components/dashboard/StatsCard";
+// Fallback local RevenueChart to avoid missing-module import error.
+// If a real RevenueChart component exists elsewhere, replace this import accordingly.
+function RevenueChart() {
+  return (
+    <div className="h-64 bg-white/5 rounded-lg flex items-center justify-center">
+      <span className="text-sm text-muted-foreground">Revenue Chart Coming Soon</span>
+    </div>
+  );
+}
 
 export default function DashboardPage() {
   return (
-    <div className="flex min-h-screen bg-slate-950">
-      <Sidebar />
+    <div className="space-y-8">
 
-      <main className="flex-1 p-8">
-        <Header />
+      {/* KPI Cards */}
 
-        <div className="grid grid-cols-4 gap-6 mt-8">
-          <StatsCard
-            title="Revenue"
-            value="$0"
-            description="Today's Revenue"
-          />
+      <div className="grid grid-cols-4 gap-6">
 
-          <StatsCard
-            title="Orders"
-            value="0"
-            description="Pending Orders"
-          />
+        {/* 8 StatsCards */}
 
-          <StatsCard
-            title="Products"
-            value="0"
-            description="Products Listed"
-          />
+      </div>
 
-          <StatsCard
-            title="Customers"
-            value="0"
-            description="Registered Customers"
-          />
+      {/* Charts */}
+
+      <div className="grid grid-cols-2 gap-6">
+
+        <RevenueChart />
+
+        <div>
+          Sales Chart Coming Soon
         </div>
-      </main>
+
+      </div>
+
     </div>
   );
 }

@@ -82,3 +82,5 @@ export default function BasicInformation() {
 //chat gpt  generated, will be removed
 
 //this is a server component, so we can use async/await to fetch data from the database and display it in the form fields.
+
+//we can also use the useState hook to manage the form data and update it when the user types in the input fields.

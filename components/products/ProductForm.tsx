@@ -1,9 +1,10 @@
 "use client";
 
+
 import { useState } from "react";
 import { ProductFormData } from "@/types/product";
 
-
+import { createClient } from "@/utils/supabase/client";
 
 //real build from chat gpt imports
 
@@ -52,7 +53,21 @@ const [formData, setFormData] = useState<ProductFormData>({
   videoUrl: "",
 });
 
+const [isLoading, setIsLoading] = useState(false);
+const supabase = createClient();
 
+
+const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
+
+  setIsLoading(true);
+
+  console.log(formData);
+
+  setIsLoading(false);
+};
 
 
 
@@ -71,7 +86,10 @@ const [formData, setFormData] = useState<ProductFormData>({
 
       </div>
 
-      <form className="space-y-8">
+      <form
+  onSubmit={handleSubmit}
+  className="space-y-8"
+>
                     
 
            <BasicInformation
@@ -98,7 +116,7 @@ const [formData, setFormData] = useState<ProductFormData>({
               setFormData={setFormData}
             />
 
-            <ActionButtons isLoading={false} />
+          <ActionButtons isLoading={isLoading} />
 
       </form>
 

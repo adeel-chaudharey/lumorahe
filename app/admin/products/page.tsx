@@ -14,9 +14,14 @@ export default async function ProductsPage() {
   const supabase = createClient(cookieStore);
 
   const result = await supabase
-    .from("products")
-    .select("*")
-    .order("created_at", { ascending: false });
+  .from("products")
+  .select(`
+    *,
+    categories (
+      name
+    )
+  `)
+  .order("created_at", { ascending: false });
 
   const products = result.data ?? [];
 
@@ -37,6 +42,13 @@ export default async function ProductsPage() {
     <th className="px-6 py-4 text-left text-slate-300">
       Product
     </th>
+
+
+<th className="px-6 py-4 text-left text-slate-300">
+  Category
+</th>
+
+
 
     <th className="px-6 py-4 text-left text-slate-300">
       Price
@@ -84,7 +96,9 @@ export default async function ProductsPage() {
                 <td className="px-6 py-4 text-white">
                   {product.name}
                 </td>
-
+<td className="px-6 py-4 text-slate-300">
+  {product.categories?.name ?? "-"}
+</td>
                 <td className="px-6 py-4 text-emerald-400">
                   ${product.price}
                 </td>

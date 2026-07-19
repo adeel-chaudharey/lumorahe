@@ -1,64 +1,55 @@
-export default function RevenueChart() {
+"use client";
+
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+} from "recharts";
+
+type RevenueData = {
+  day: string;
+  revenue: number;
+};
+
+type Props = {
+  data: RevenueData[];
+};
+
+export default function RevenueChart({
+  data,
+}: Props) {
   return (
-    <div
-      className="
-        bg-slate-900
-        border
-        border-slate-800
-        rounded-2xl
-        p-6
-        h-105
-        transition-all
-        duration-300
-        hover:border-emerald-400/40
-        hover:shadow-[0_0_25px_rgba(52,211,153,0.18)]
-      "
-    >
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h2 className="text-2xl font-bold text-white">
-            Revenue Analytics
-          </h2>
+    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h2 className="mb-6 text-xl font-semibold text-white">
+        Revenue (Last 7 Days)
+      </h2>
 
-          <p className="text-slate-400 mt-1">
-            Revenue overview of your store
-          </p>
-        </div>
+      <div className="h-[320px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={data}>
+            <CartesianGrid stroke="#1e293b" />
 
-        <select
-          className="
-            bg-slate-800
-            border
-            border-slate-700
-            rounded-lg
-            px-4
-            py-2
-            text-white
-            outline-none
-            hover:border-emerald-400
-          "
-        >
-          <option>Last 7 Days</option>
-          <option>Last 30 Days</option>
-          <option>Last 12 Months</option>
-        </select>
-      </div>
+            <XAxis
+              dataKey="day"
+              stroke="#94a3b8"
+            />
 
-      <div
-        className="
-          flex
-          items-center
-          justify-center
-          h-70
-          rounded-xl
-          border-2
-          border-dashed
-          border-slate-700
-          text-slate-500
-          text-lg
-        "
-      >
-        Revenue Chart Coming Soon
+            <YAxis stroke="#94a3b8" />
+
+            <Tooltip />
+
+            <Line
+              type="monotone"
+              dataKey="revenue"
+              stroke="#10b981"
+              strokeWidth={3}
+            />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );

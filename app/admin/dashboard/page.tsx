@@ -10,7 +10,7 @@ import ActivityFeed from "../../components/dashboard/ActivityFeed";
 import LatestCustomers from "../../components/dashboard/LatestCustomers";
 
 const RecentReviews = () => <div className="card">Recent Reviews</div>;
-const QuickActions = () => <div className="card">Quick Actions</div>;
+import QuickActions from "../../components/dashboard/QuickActions";
 
 import {
   DollarSign,

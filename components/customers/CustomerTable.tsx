@@ -1,6 +1,6 @@
 import { Customer } from "@/app/admin/customers/types";
 import { CheckCircle, XCircle } from "lucide-react";
-
+import Link from "next/link";
 interface Props {
   customers: Customer[];
 }
@@ -25,14 +25,17 @@ export default function CustomerTable({
         <tbody>
           {customers.map((customer) => (
             <tr
-              key={customer.id}
-              className="border-t border-slate-800 hover:bg-slate-800/60 transition"
-            >
+  key={customer.id}
+  className="border-t border-slate-800 transition duration-200 hover:bg-slate-800/60 hover:scale-[1.01]"
+>
               <td className="px-6 py-4">
                 <div>
-                  <p className="font-semibold text-white">
-                    {customer.full_name}
-                  </p>
+                 <Link
+  href={`/admin/customers/${customer.id}`}
+  className="font-semibold text-white hover:text-emerald-400 transition"
+>
+  {customer.full_name}
+</Link>
 
                   <p className="text-sm text-slate-400">
                     {customer.email}

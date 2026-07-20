@@ -18,3 +18,5 @@ export default function CustomerSearch() {
     </div>
   );
 }
+
+//relative path :app\admin\customers

@@ -1,0 +1,30 @@
+INSERT INTO customers (
+    full_name,
+    email,
+    phone,
+    total_orders,
+    total_spent,
+    email_verified,
+    loyalty_points
+)
+VALUES
+('John Smith','john@example.com','+1 555-1001',5,820.50,true,420),
+('Emma Johnson','emma@example.com','+1 555-1002',3,299.99,true,180),
+('Michael Brown','michael@example.com','+1 555-1003',8,1240.00,true,610),
+('Olivia Davis','olivia@example.com','+1 555-1004',2,145.75,false,40),
+('William Wilson','william@example.com','+1 555-1005',11,2520.40,true,980),
+('Sophia Miller','sophia@example.com','+1 555-1006',4,489.20,true,220),
+('James Moore','james@example.com','+1 555-1007',1,59.99,true,15),
+('Isabella Taylor','isabella@example.com','+1 555-1008',6,740.60,true,310),
+('Benjamin Anderson','ben@example.com','+1 555-1009',7,905.35,true,390),
+('Charlotte Thomas','charlotte@example.com','+1 555-1010',2,189.00,false,60),
+('Daniel Jackson','daniel@example.com','+1 555-1011',9,1825.00,true,720),
+('Amelia White','amelia@example.com','+1 555-1012',3,410.80,true,170),
+('Matthew Harris','matt@example.com','+1 555-1013',5,635.40,true,260),
+('Mia Martin','mia@example.com','+1 555-1014',2,220.90,true,90),
+('David Thompson','david@example.com','+1 555-1015',4,540.00,true,200),
+('Evelyn Garcia','evelyn@example.com','+1 555-1016',6,810.75,true,350),
+('Joseph Martinez','joseph@example.com','+1 555-1017',10,2150.20,true,910),
+('Harper Robinson','harper@example.com','+1 555-1018',3,305.50,false,80),
+('Christopher Clark','chris@example.com','+1 555-1019',7,999.99,true,450),
+('Abigail Rodriguez','abigail@example.com','+1 555-1020',5,688.40,true,270);

@@ -20,4 +20,19 @@ export interface Customer {
   created_at: string;
 
   last_login: string | null;
+
+  addresses: Address[];
+}
+
+export interface Address {
+  id: string;
+  full_name: string;
+  phone: string | null;
+  address_line1: string;
+  address_line2: string | null;
+  city: string;
+  state: string | null;
+  postal_code: string | null;
+  country: string;
+  is_default: boolean;
 }

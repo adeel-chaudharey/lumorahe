@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-
+import OrderStatusForm from "@/components/orders/OrderStatusForm";
 import { getOrder } from "../queries";
 
 import OrderCustomer from "@/components/orders/OrderCustomer";
@@ -40,6 +40,7 @@ export default async function OrderDetailsPage({
       <OrderItems
         items={order.order_items ?? []}
       />
+      <OrderStatusForm order={order} />
     </div>
   );
 }
